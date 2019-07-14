@@ -1,0 +1,9 @@
+<h1><%= @author.name %></h1>
+
+<h3><u><%= "#{pluralize(@author.books.count, "Book")}" %></u></h3>
+<% @author.books.each do |book| %>
+  <ul>
+    <li><%= book.title %></li>
+  </ul>
+<% end %>
+<p>Average Number of Pages: <%= @author.average_pages %></p>

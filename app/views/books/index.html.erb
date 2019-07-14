@@ -1,0 +1,15 @@
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+  <section id="book-<%= book.id %>">
+    <h2><%= book.title %></h2>
+    <p>Number of Pages: <%= book.number_of_pages %></p>
+    <p>Publication Year: <%= book.publication_year %></p>
+    <h3><u><%= "#{pluralize(book.authors.count, "Author")}" %></u></h3>
+    <% book.authors.each do |author| %>
+      <ul>
+        <li><%= link_to author.name, author_path(author) %></li>
+      </ul>
+    <% end %>
+  </section>
+<% end %>
